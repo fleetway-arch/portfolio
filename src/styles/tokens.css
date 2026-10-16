@@ -67,6 +67,7 @@
   --space-7: 3rem;
   --gutter: 1rem;
   --page-max: 1200px;
+  --header-offset: 6rem;
 
   /* Shape */
   --radius-sm: 2px;
