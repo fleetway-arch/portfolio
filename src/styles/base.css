@@ -489,6 +489,7 @@ button {
 .content-section::before {
   content: "◆" / "";
   display: block;
+  grid-column: 1 / -1;
   margin-bottom: var(--space-6);
   color: var(--c-primary-hi);
   font-size: var(--fs-xs);
@@ -586,44 +587,6 @@ button {
   .terminal {
     padding-inline: var(--space-4);
   }
-}
-
-/* ==========================================================================
-   LEGACY page styles — replaced page by page during the redesign
-   ========================================================================== */
-
-:root {
-  --text: var(--c-text);
-  --muted: var(--c-muted);
-  --navy: var(--c-text);
-  --teal: var(--c-mark-teal);
-  --coral: var(--c-primary-hi);
-  --gold: var(--c-accent);
-  --line: var(--c-line);
-  --surface-strong: var(--c-surface);
-  --surface-muted: var(--c-surface-2);
-  --radius-lg: var(--radius-sm);
-  --radius-xl: var(--radius-sm);
-}
-
-.about-card,
-.about-cta {
-  border: 1px solid var(--c-line);
-  background: var(--c-surface);
-}
-
-.about-card h2,
-.about-cta h2 {
-  margin: 0;
-  font-family: var(--font-display);
-  font-size: var(--fs-xl);
-  line-height: 1.05;
-}
-
-.about-card p,
-.about-cta > p {
-  margin: 0;
-  color: var(--muted);
 }
 
 /* ==========================================================================
@@ -1055,108 +1018,129 @@ body.is-loaded .meter-fill {
   }
 }
 
-/* ABOUT */
+/* ==========================================================================
+   About — profile cards, numbered facts, segmented CTA, contact readout
+   ========================================================================== */
+
+.about-stack {
+  display: grid;
+  gap: var(--space-4);
+}
+
 .about-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: var(--space-4);
 }
 
 .about-card {
-  padding: 1.35rem;
+  padding: var(--space-5);
 }
 
-.about-card-accent {
-  background: linear-gradient(
-    135deg,
-    rgba(21, 111, 100, 0.12),
-    rgba(211, 162, 85, 0.14)
-  );
+.about-card h2,
+.about-cta h2,
+.contact-info-card h2 {
+  margin-bottom: var(--space-3);
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 600;
+  line-height: 1.05;
+}
+
+.about-card p,
+.about-cta > p {
+  margin: 0 0 var(--space-3);
+  color: var(--c-muted);
 }
 
 .value-list {
   display: grid;
-  gap: 0.85rem;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
 .value-list li {
-  padding-left: 1rem;
   position: relative;
-  color: var(--muted);
-  line-height: 1.65;
+  padding-left: var(--space-5);
+  color: var(--c-muted);
 }
 
 .value-list li::before {
-  content: "";
+  content: "▸" / "";
   position: absolute;
   left: 0;
-  top: 0.68em;
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 50%;
-  background: var(--gold);
+  color: var(--mark);
+}
+
+.value-list strong {
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .facts-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.85rem;
-  margin-top: 0.4rem;
+  gap: var(--space-3);
 }
 
 .fact-item {
   display: flex;
-  gap: 0.8rem;
-  align-items: flex-start;
-  padding: 1rem 1rem 1rem 0.95rem;
-  border-radius: 18px;
-  background: var(--surface-muted);
+  gap: var(--space-3);
+  align-items: baseline;
+  padding: var(--space-4);
+  background: color-mix(in srgb, var(--c-bg) 55%, transparent);
+  border-left: 2px solid var(--mark);
 }
 
 .fact-number {
   flex: 0 0 auto;
-  min-width: 2.3rem;
-  color: var(--coral);
-  font-weight: 800;
-  letter-spacing: 0.08em;
+  color: var(--c-accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  font-weight: 500;
 }
 
 .fact-item p {
-  color: var(--muted);
-  line-height: 1.65;
+  margin: 0;
+  color: var(--c-text);
 }
 
+/* Footer-style bar: segments on a crimson strip */
 .about-cta {
-  padding: 1.5rem;
-  text-align: center;
-}
-
-.about-cta h2 {
-  font-size: clamp(1.9rem, 3vw, 3rem);
-}
-
-.about-stack {
   display: grid;
-  gap: 1rem;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-top: 3px solid var(--c-primary);
+  background: var(--c-surface);
+}
+
+.about-cta > p {
+  max-width: 70ch;
+}
+
+.about-cta .cta-buttons {
+  justify-content: flex-end;
+  padding: var(--space-2);
+  background: var(--c-primary);
 }
 
 .contact-section {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 1rem;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: var(--space-4);
   align-items: stretch;
-}
-
-.contact-photo-card,
-.contact-info-card {
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--line);
-  overflow: hidden;
-  background: var(--surface-strong);
 }
 
 .contact-photo-card {
   min-height: 420px;
+  overflow: hidden;
+  border: 1px solid var(--c-line-strong);
 }
 
 .contact-photo {
@@ -1167,64 +1151,63 @@ body.is-loaded .meter-fill {
 }
 
 .contact-info-card {
-  padding: 1.35rem;
   display: grid;
-  gap: 1rem;
   align-content: center;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-left: var(--border-accent) solid var(--c-primary);
+  background: var(--c-surface);
 }
 
+.contact-info-card .eyebrow,
 .contact-info-card h2 {
   margin: 0;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2rem, 4vw, 3.2rem);
-  line-height: 0.95;
 }
 
 .contact-info-list {
+  display: grid;
+  gap: var(--space-2);
   margin: 0;
   padding: 0;
   list-style: none;
-  display: grid;
-  gap: 0.7rem;
 }
 
 .contact-info-list li {
   display: grid;
-  gap: 0.22rem;
-  padding: 0.8rem 0.95rem;
-  border-radius: 14px;
-  background: var(--surface-muted);
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px dashed var(--c-line-strong);
 }
 
 .contact-label {
-  color: var(--teal);
-  font-size: 0.74rem;
-  letter-spacing: 0.1em;
+  color: var(--c-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  font-weight: 800;
 }
 
-.contact-info-list span {
-  color: var(--navy);
-  font-weight: 700;
+.contact-info-list span:not(.contact-label) {
+  color: var(--c-text);
+  font-weight: 600;
 }
 
 .contact-info-list a {
-  color: var(--navy);
-  font-weight: 700;
+  color: var(--c-primary-hi);
+  font-weight: 600;
   text-decoration: underline;
   text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
-  word-break: break-word;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+.contact-info-list a:hover {
+  color: var(--c-text);
 }
 
 @media (max-width: 980px) {
   .about-grid,
   .contact-section {
-    grid-template-columns: 1fr;
-  }
-
-  .facts-list {
     grid-template-columns: 1fr;
   }
 
@@ -1235,13 +1218,31 @@ body.is-loaded .meter-fill {
 }
 
 @media (max-width: 640px) {
+  .facts-list {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card,
+  .about-cta,
+  .contact-info-card {
+    padding: var(--space-4);
+  }
+
+  .about-cta .cta-buttons {
+    justify-content: stretch;
+  }
+
+  .about-cta .button {
+    flex: 1 1 100%;
+  }
+
   .contact-photo-card,
   .contact-photo {
     min-height: 260px;
   }
 
-  .contact-info-card {
-    padding: 1.05rem;
+  .contact-info-list li {
+    padding-inline: 0;
   }
 }
 
