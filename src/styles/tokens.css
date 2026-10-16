@@ -12,7 +12,7 @@
   /* Color: brand */
   --c-primary: #8c2a37;
   --c-primary-hover: #a3323f;
-  --c-primary-hi: #e0566a;
+  --c-primary-hi: #e6667a;
   --c-accent: #e8b64c;
   --c-on-primary: #ffffff;
   --c-on-accent: #11151c;
@@ -22,14 +22,14 @@
   --c-tint-teal: #16403f;
   --c-tint-violet: #2a2140;
   --c-tint-moss: #1f3326;
-  --c-mark-crimson: #e0566a;
+  --c-mark-crimson: #e6667a;
   --c-mark-teal: #4fc1b0;
   --c-mark-violet: #a98bf0;
   --c-mark-moss: #7fc48a;
 
   /* Color: text and lines */
   --c-text: #e7e9ee;
-  --c-muted: #9aa3b2;
+  --c-muted: #a1aab9;
   --c-faint: #6b7484;
   --c-line: rgba(231, 233, 238, 0.12);
   --c-line-strong: rgba(231, 233, 238, 0.24);
