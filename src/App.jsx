@@ -11,6 +11,7 @@ const projects = [
   {
     name: "Groupie Tracker",
     tag: "Go · APIs",
+    tint: "crimson",
     image: "/images/groupie_image.jpeg",
     description:
       "A concert discovery app that explores artist and location data with filtering, structured responses, and a clean information layout.",
@@ -25,6 +26,7 @@ const projects = [
   {
     name: "Net Cat",
     tag: "Go · Networking",
+    tint: "teal",
     image: "/images/net_cat.jpeg",
     description:
       "A concurrent chat tool built in Go with live messaging, multiple client handling, and a focus on reliable networking behavior.",
@@ -39,6 +41,7 @@ const projects = [
   {
     name: "YuGidle",
     tag: "Game · UI",
+    tint: "violet",
     image: "/images/yugidle.jpeg",
     description:
       "A playful word game inspired by Wordle, built around Yu-Gi-Oh! cards with fast feedback and a game loop that keeps the experience moving.",
@@ -53,6 +56,7 @@ const projects = [
   {
     name: "Portfolio Refresh",
     tag: "Design · Layout",
+    tint: "moss",
     image: "/images/ascii-art.jpeg",
     description:
       "The site redesign you are viewing now: a React portfolio with a clearer hierarchy, usable navigation, and responsive content sections.",
@@ -163,7 +167,7 @@ function Home() {
         <div className="project-layout">
           <div className="project-grid" aria-label="Project list">
             {projects.map((project) => (
-              <button type="button" className={`project-card${selected.name === project.name ? " is-active" : ""}`} key={project.name} onClick={() => setSelected(project)} aria-pressed={selected.name === project.name}>
+              <button type="button" className={`project-card notched${selected.name === project.name ? " is-active" : ""}`} data-tint={project.tint} key={project.name} onClick={() => setSelected(project)} aria-pressed={selected.name === project.name}>
                 <img className="project-image" src={project.image} alt={`${project.name} project preview`} />
                 <div className="project-card-body">
                   <span className="project-tag">{project.tag}</span>
@@ -173,7 +177,7 @@ function Home() {
               </button>
             ))}
           </div>
-          <aside className="project-details" translate="yes">
+          <aside className="project-details" data-tint={selected.tint} translate="yes">
             <p className="eyebrow">Project spotlight</p>
             <h2>{selected.name}</h2>
             <p className="detail-description">{selected.description}</p>
