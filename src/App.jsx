@@ -80,6 +80,13 @@ const skillCards = [
   ["📚", "Training", "Learning through practice", "A space for workshops, tutorials, and other training experiences.", ["Technical practice", "Continuous learning", "New technologies"], true],
 ];
 
+const skillTints = {
+  "Technical skill": "teal",
+  "Professional skill": "violet",
+  Challenge: "crimson",
+  Training: "crimson",
+};
+
 function Header({ currentPage }) {
   return (
     <header className="site-header">
@@ -215,9 +222,9 @@ function Skills() {
         </div>
         <div className="skills-grid">
           {skillCards.map(([icon, type, title, description, tags, featured]) => (
-            <article className={`skill-card${featured ? " skill-card-featured" : ""}`} key={title}>
+            <article className={`skill-card notched${featured ? " skill-card-featured" : ""}`} data-tint={skillTints[type]} key={title}>
               <div className="skill-card-heading">
-                <span className="skill-icon">{icon}</span>
+                <span className="skill-icon" aria-hidden="true">{icon}</span>
                 <div>
                   <span className="skill-card-type">{type}</span>
                   <h3>{title}</h3>
