@@ -1,0 +1,94 @@
+/*
+ * Design tokens — "Signal Crimson".
+ * Every color, font, size and motion value used by base.css lives here.
+ */
+:root {
+  /* Color: surfaces */
+  --c-bg: #11151c;
+  --c-surface: #1a202b;
+  --c-surface-2: #222937;
+  --c-surface-3: #2b3343;
+
+  /* Color: brand */
+  --c-primary: #8c2a37;
+  --c-primary-hover: #a3323f;
+  --c-primary-hi: #e0566a;
+  --c-accent: #e8b64c;
+  --c-on-primary: #ffffff;
+  --c-on-accent: #11151c;
+
+  /* Color: category tints (tile backgrounds) and their marks */
+  --c-tint-crimson: #2b1a22;
+  --c-tint-teal: #16403f;
+  --c-tint-violet: #2a2140;
+  --c-tint-moss: #1f3326;
+  --c-mark-crimson: #e0566a;
+  --c-mark-teal: #4fc1b0;
+  --c-mark-violet: #a98bf0;
+  --c-mark-moss: #7fc48a;
+
+  /* Color: text and lines */
+  --c-text: #e7e9ee;
+  --c-muted: #9aa3b2;
+  --c-faint: #6b7484;
+  --c-line: rgba(231, 233, 238, 0.12);
+  --c-line-strong: rgba(231, 233, 238, 0.24);
+  --c-grid: rgba(231, 233, 238, 0.07);
+  --c-grid-cross: rgba(231, 233, 238, 0.13);
+  --c-focus: var(--c-primary-hi);
+
+  /* Typography */
+  --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --fs-xs: 0.72rem;
+  --fs-sm: 0.85rem;
+  --fs-base: 1rem;
+  --fs-md: 1.15rem;
+  --fs-lg: 1.5rem;
+  --fs-xl: clamp(1.9rem, 3.4vw, 2.8rem);
+  --fs-2xl: clamp(2.3rem, 5vw, 4.2rem);
+
+  --lh-tight: 1;
+  --lh-snug: 1.35;
+  --lh-body: 1.7;
+
+  --tracking-wide: 0.18em;
+  --tracking-xwide: 0.32em;
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --gutter: 1rem;
+  --page-max: 1200px;
+
+  /* Shape */
+  --radius-sm: 2px;
+  --notch: 14px;
+  --slash-w: 14px;
+  --slash-gap: 10px;
+  --cut: 28px;
+  --tick: 6px;
+  --border-accent: 4px;
+  --grid-size: 48px;
+
+  /* Motion */
+  --dur-fast: 150ms;
+  --dur-med: 250ms;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --lift: -3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-med: 0ms;
+    --lift: 0px;
+  }
+}
