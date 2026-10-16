@@ -1,11 +1,25 @@
 # Portfolio
 
-Static portfolio site served by the Go server in `main.go`.
+React portfolio frontend built with Vite and served by the Go server. The server
+supports client-side routes such as `/about` when they are opened directly.
 
-## Run locally
+## Run the frontend locally
 
 ```bash
+npm install
+npm run dev
+```
+
+Then open the local URL shown by Vite.
+
+## Run with the Go server
+
+Build the React app first, then start the Go server:
+
+```bash
+npm run build
 go run main.go
 ```
 
-Then open `http://localhost:8080`.
+Then open `http://localhost:8080`. The Go server serves the Vite `dist` output
+and falls back to React's `index.html` for routes such as `/about`.
