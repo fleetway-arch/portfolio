@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 const navItems = [
-  { label: "Projects", href: "/" },
-  { label: "Skills", href: "/skills" },
-  { label: "Experience", href: "/experience" },
-  { label: "About", href: "/about" },
+  { label: "Projects", href: "/", sub: "Selected work" },
+  { label: "Skills", href: "/skills", sub: "Skills snapshot" },
+  { label: "Experience", href: "/experience", sub: "Experience timeline" },
+  { label: "About", href: "/about", sub: "About me" },
 ];
 
 const projects = [
@@ -80,13 +80,15 @@ function Header({ currentPage }) {
   return (
     <header className="site-header">
       <div className="site-brand">
+        <a href="/" className="site-title"><span className="site-title-first">Angelique</span> Oluwabusayomi</a>
         <span className="site-kicker">Portfolio</span>
-        <a href="/" className="site-title">Angelique Oluwabusayomi</a>
+        <span className="site-version" aria-hidden="true">v.2026</span>
       </div>
       <nav className="site-nav" aria-label="Primary navigation">
         {navItems.map((item) => (
           <a key={item.href} href={item.href} className="nav-link" aria-current={currentPage === item.href ? "page" : undefined}>
-            {item.label}
+            <span className="nav-label">{item.label}</span>
+            <span className="nav-sub" aria-hidden="true">{item.sub}</span>
           </a>
         ))}
       </nav>
@@ -109,22 +111,28 @@ function Layout({ currentPage, children }) {
   );
 }
 
-function Hero({ eyebrow, title, text, stats, tight = false, children }) {
+function Hero({ eyebrow, title, text, stats, boot, tight = false, children }) {
   return (
-    <section className={`hero-card${tight ? " hero-card-tight" : ""}`} data-reveal>
+    <section className={`hero${tight ? " hero-tight" : ""}`} data-reveal>
       <div className="hero-copy">
-        <p className="eyebrow">{eyebrow}</p>
+        <p className="slash-bar hero-bar"><span className="slash-bar-body">{eyebrow}</span></p>
         <h1>{title}</h1>
         <p className="hero-text">{text}</p>
         {children}
       </div>
-      <div className="hero-panel hero-panel-inline">
-        {stats.map(([value, label]) => (
-          <div className="stat-card stat-card-small" key={label}>
-            <span className="stat-value">{value}</span>
-            <span className="stat-label">{label}</span>
-          </div>
-        ))}
+      <div className="terminal">
+        <div className="terminal-boot" aria-hidden="true">
+          {boot.map((line) => <p key={line}>{line}</p>)}
+        </div>
+        <ul className="terminal-stats">
+          {stats.map(([value, label]) => (
+            <li className="terminal-row" key={label}>
+              <span className="terminal-value">{value}</span>
+              <span className="terminal-label">{label}</span>
+            </li>
+          ))}
+        </ul>
+        <p className="terminal-caret" aria-hidden="true">&gt;</p>
       </div>
     </section>
   );
@@ -136,6 +144,7 @@ function Home() {
     <>
       <Hero
         eyebrow="Backend-focused developer"
+        boot={["ANGELIQUE.SYS // portfolio unit initializing", "go runtime ............. done", "loading projects [4] ... done", "rendering interface .... done"]}
         title="Practical web builds with clear structure and strong delivery."
         text="This portfolio highlights projects, skills, and experience in a format that is easy to scan, responsive on mobile, and ready for real use."
         stats={[["4", "featured projects"], ["Go", "backend foundation"], ["SQL", "data modeling and APIs"], ["UI", "responsive front ends"]]}
@@ -189,6 +198,7 @@ function Skills() {
       <Hero
         tight
         eyebrow="Skills snapshot"
+        boot={["ANGELIQUE.SYS // skills.index", "mounting toolchain ..... done"]}
         title="Balanced across backend systems, product thinking, and delivery."
         text="The focus is on the skills that show up in real projects: readable code, data handling, responsive UI, and dependable collaboration."
         stats={[["Go", "primary language"], ["SQL", "data design"], ["UI", "responsive layouts"]]}
@@ -230,7 +240,7 @@ const experiences = [
 function Experience() {
   return (
     <>
-      <Hero tight eyebrow="Experience timeline" title="A path built around projects, iteration, and stronger delivery." text="This timeline keeps the story honest and useful: what has been built, what was learned, and how the portfolio has improved over time." stats={[["Projects", "hands-on work"], ["Learning", "continuous growth"], ["Teams", "clear collaboration"]]} />
+      <Hero tight eyebrow="Experience timeline" boot={["ANGELIQUE.SYS // timeline.log", "reading milestones ..... done"]} title="A path built around projects, iteration, and stronger delivery." text="This timeline keeps the story honest and useful: what has been built, what was learned, and how the portfolio has improved over time." stats={[["Projects", "hands-on work"], ["Learning", "continuous growth"], ["Teams", "clear collaboration"]]} />
       <section className="content-section" data-reveal>
         <div className="section-heading">
           <p className="eyebrow">Milestones</p>
@@ -259,7 +269,7 @@ function Experience() {
 function About() {
   return (
     <>
-      <Hero tight eyebrow="About me" title="Focused on building software that is practical, readable, and reliable." text="I like shipping projects that solve a clear problem and stay easy to maintain after the first launch." stats={[["Clear", "structure first"], ["Practical", "real project focus"], ["Usable", "mobile-friendly delivery"]]} />
+      <Hero tight eyebrow="About me" boot={["ANGELIQUE.SYS // operator profile", "BAFA cert: special care  verified"]} title="Focused on building software that is practical, readable, and reliable." text="I like shipping projects that solve a clear problem and stay easy to maintain after the first launch." stats={[["Clear", "structure first"], ["Practical", "real project focus"], ["Usable", "mobile-friendly delivery"]]} />
       <section className="content-section about-stack" data-reveal>
         <div className="about-grid">
           <section className="about-card"><p className="eyebrow">Who I am</p><h2>Builder first, optimist second, and usually the person cleaning up the details.</h2><p>My best work comes from taking an idea, breaking it into small pieces, and making sure each piece is understandable before it is styled or shipped.</p><p>I care about backend structure, data handling, and the front-end experience that makes a project feel finished instead of just functional.</p></section>
