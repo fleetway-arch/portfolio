@@ -108,11 +108,6 @@ function Header({ currentPage }) {
 }
 
 function Layout({ currentPage, children }) {
-  useEffect(() => {
-    document.body.className = `page-${currentPage === "/" ? "home" : currentPage.slice(1)}`;
-    document.body.classList.add("is-loaded");
-  }, [currentPage]);
-
   return (
     <>
       <div className="page-bg" aria-hidden="true" />
@@ -122,9 +117,9 @@ function Layout({ currentPage, children }) {
   );
 }
 
-function Hero({ eyebrow, title, text, stats, boot, tight = false, children }) {
+function Hero({ eyebrow, title, text, stats, boot, children }) {
   return (
-    <section className={`hero${tight ? " hero-tight" : ""}`} data-reveal>
+    <section className="hero">
       <div className="hero-copy">
         <p className="slash-bar hero-bar"><span className="slash-bar-body">{eyebrow}</span></p>
         <h1>{title}</h1>
@@ -165,7 +160,7 @@ function Home() {
           <a href="/skills" className="button button-secondary">View skills</a>
         </div>
       </Hero>
-      <section className="content-section" id="projects" data-reveal>
+      <section className="content-section" id="projects">
         <div className="section-heading">
           <p className="eyebrow">Selected work</p>
           <h2>Projects that show both technical depth and usability.</h2>
@@ -207,14 +202,13 @@ function Skills() {
   return (
     <>
       <Hero
-        tight
         eyebrow="Skills snapshot"
         boot={["ANGELIQUE.SYS // skills.index", "mounting toolchain ..... done"]}
         title="Balanced across backend systems, product thinking, and delivery."
         text="The focus is on the skills that show up in real projects: readable code, data handling, responsive UI, and dependable collaboration."
         stats={[["Go", "primary language"], ["SQL", "data design"], ["UI", "responsive layouts"]]}
       />
-      <section className="content-section" data-reveal>
+      <section className="content-section">
         <div className="section-heading">
           <p className="eyebrow">Core strengths</p>
           <h2>Skills, challenges, and experiences in one place.</h2>
@@ -251,8 +245,8 @@ const experiences = [
 function Experience() {
   return (
     <>
-      <Hero tight eyebrow="Experience timeline" boot={["ANGELIQUE.SYS // timeline.log", "reading milestones ..... done"]} title="A path built around projects, iteration, and stronger delivery." text="This timeline keeps the story honest and useful: what has been built, what was learned, and how the portfolio has improved over time." stats={[["Projects", "hands-on work"], ["Learning", "continuous growth"], ["Teams", "clear collaboration"]]} />
-      <section className="content-section" data-reveal>
+      <Hero eyebrow="Experience timeline" boot={["ANGELIQUE.SYS // timeline.log", "reading milestones ..... done"]} title="A path built around projects, iteration, and stronger delivery." text="This timeline keeps the story honest and useful: what has been built, what was learned, and how the portfolio has improved over time." stats={[["Projects", "hands-on work"], ["Learning", "continuous growth"], ["Teams", "clear collaboration"]]} />
+      <section className="content-section">
         <div className="section-heading">
           <p className="eyebrow">Milestones</p>
           <h2>Work that shows momentum, not just a list of dates.</h2>
@@ -280,8 +274,8 @@ function Experience() {
 function About() {
   return (
     <>
-      <Hero tight eyebrow="About me" boot={["ANGELIQUE.SYS // operator profile", "BAFA cert: special care  verified"]} title="Focused on building software that is practical, readable, and reliable." text="I like shipping projects that solve a clear problem and stay easy to maintain after the first launch." stats={[["Clear", "structure first"], ["Practical", "real project focus"], ["Usable", "mobile-friendly delivery"]]} />
-      <section className="content-section about-stack" data-reveal>
+      <Hero eyebrow="About me" boot={["ANGELIQUE.SYS // operator profile", "BAFA cert: special care  verified"]} title="Focused on building software that is practical, readable, and reliable." text="I like shipping projects that solve a clear problem and stay easy to maintain after the first launch." stats={[["Clear", "structure first"], ["Practical", "real project focus"], ["Usable", "mobile-friendly delivery"]]} />
+      <section className="content-section about-stack">
         <div className="about-grid">
           <section className="about-card notched"><p className="eyebrow">Who I am</p><h2>Builder first, optimist second, and usually the person cleaning up the details.</h2><p>My best work comes from taking an idea, breaking it into small pieces, and making sure each piece is understandable before it is styled or shipped.</p><p>I care about backend structure, data handling, and the front-end experience that makes a project feel finished instead of just functional.</p></section>
           <section className="about-card about-card-accent notched" data-tint="violet"><p className="eyebrow">What I value</p><ul className="value-list"><li><strong>Clarity:</strong> code and layouts should make sense fast.</li><li><strong>Reliability:</strong> a feature should keep working after handoff.</li><li><strong>Consistency:</strong> details matter across pages and devices.</li><li><strong>Growth:</strong> every project should sharpen the next one.</li></ul></section>
@@ -289,7 +283,7 @@ function About() {
         <section className="about-card notched" data-tint="teal"><p className="eyebrow">How I work</p><div className="facts-list">{["I start with structure, then refine visuals once the flow is clear.", "I prefer readable code and interfaces that stay simple under pressure.", "I enjoy improving existing work instead of only building from scratch.", "I like working on projects that combine backend logic with clean presentation."].map((fact, index) => <div className="fact-item" key={fact}><span className="fact-number">0{index + 1}</span><p>{fact}</p></div>)}</div></section>
         <section className="about-cta"><h2>Next steps</h2><p>If you want the full picture, the projects, skills, and experience pages work together as one portfolio instead of disconnected pieces.</p><div className="cta-buttons"><a href="/" className="button button-accent">Browse projects</a><a href="/experience" className="button button-secondary">See experience</a></div></section>
       </section>
-      <section className="content-section contact-section" data-reveal>
+      <section className="content-section contact-section">
         <article className="contact-photo-card notched"><img src="/images/Image_me.jpg" alt="Photo of Angelique Oluwabusayomi" className="contact-photo" /></article>
         <article className="contact-info-card"><p className="eyebrow">Contact</p><h2>My information</h2><ul className="contact-info-list"><li><span className="contact-label">Full name</span><span>Angelique Oluwabusayomi</span></li><li><span className="contact-label">Email</span><a href="mailto:bozebuzze@gmail.com">bozebuzze@gmail.com</a></li><li><span className="contact-label">Phone</span><a href="tel:+33766102666">0766102666</a></li><li><span className="contact-label">Location</span><span>France, 76520, Franqueville-Saint-Pierre</span></li><li><span className="contact-label">LinkedIn / GitHub</span><a href="https://www.linkedin.com/in/oluwabusayomi-angelique-0a8916334" target="_blank" rel="noreferrer">www.linkedin.com/in/oluwabusayomi-angelique-0a8916334</a><a href="https://github.com/fleetway-arch" target="_blank" rel="noreferrer">github.com/fleetway-arch</a></li></ul></article>
       </section>

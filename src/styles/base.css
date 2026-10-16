@@ -146,19 +146,6 @@ button {
 [data-tint="violet"] { --tint: var(--c-tint-violet); --mark: var(--c-mark-violet); }
 [data-tint="moss"] { --tint: var(--c-tint-moss); --mark: var(--c-mark-moss); }
 
-/* Mono chip, like a key-cap */
-.chip {
-  display: inline-block;
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--c-line-strong);
-  border-radius: var(--radius-sm);
-  background: var(--c-surface-2);
-  color: var(--c-text);
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  letter-spacing: 0.04em;
-}
-
 /* ==========================================================================
    Header
    ========================================================================== */
@@ -860,40 +847,6 @@ button {
   }
 }
 
-/* METER */
-.meter {
-  margin-top: 1rem;
-  display: grid;
-  gap: 0.55rem;
-}
-
-.meter-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
-.meter-track {
-  height: 0.8rem;
-  border-radius: 999px;
-  overflow: hidden;
-  background: rgba(16, 33, 58, 0.08);
-}
-
-.meter-fill {
-  width: 0;
-  height: 100%;
-  border-radius: inherit;
-  background: linear-gradient(90deg, var(--teal), var(--gold));
-  transition: width 900ms ease;
-}
-
-body.is-loaded .meter-fill {
-  width: var(--value);
-}
-
 /* ==========================================================================
    Experience — timeline drawn as a ruler
    ========================================================================== */
@@ -1244,18 +1197,4 @@ body.is-loaded .meter-fill {
   .contact-info-list li {
     padding-inline: 0;
   }
-}
-
-/* REVEAL */
-.reveal {
-  opacity: 0;
-  transform: translateY(18px);
-  transition:
-    opacity 0.6s ease,
-    transform 0.6s ease;
-}
-
-.reveal.is-visible {
-  opacity: 1;
-  transform: translateY(0);
 }
