@@ -931,90 +931,128 @@ body.is-loaded .meter-fill {
   width: var(--value);
 }
 
-/* EXPERIENCE */
+/* ==========================================================================
+   Experience — timeline drawn as a ruler
+   ========================================================================== */
+
 .timeline {
   position: relative;
   display: grid;
-  gap: 1rem;
-  padding-left: 1.4rem;
+  gap: var(--space-4);
+  padding-left: var(--space-7);
 }
 
+/* Spine with minor ticks every 12px and major ticks every 60px */
 .timeline::before {
   content: "";
   position: absolute;
-  left: 0.55rem;
-  top: 0.35rem;
-  bottom: 0.35rem;
-  width: 2px;
-  background: linear-gradient(180deg, var(--teal), var(--coral));
+  top: 0;
+  bottom: 0;
+  left: var(--space-4);
+  width: calc(var(--tick) * 2);
+  border-left: 1px solid var(--c-line-strong);
+  background:
+    repeating-linear-gradient(to bottom, var(--c-line-strong) 0 1px, transparent 1px 60px) 0 0 / 100% 100% no-repeat,
+    repeating-linear-gradient(to bottom, var(--c-line) 0 1px, transparent 1px 12px) 0 0 / 50% 100% no-repeat;
 }
 
 .experience-item {
   position: relative;
 }
 
+/* Diamond marker on the spine */
 .experience-item::before {
   content: "";
   position: absolute;
-  left: -1.05rem;
-  top: 1rem;
-  width: 1rem;
-  height: 1rem;
-  border-radius: 50%;
-  background: var(--surface-strong);
-  border: 3px solid var(--teal);
-  box-shadow: 0 0 0 6px rgba(21, 111, 100, 0.08);
+  top: var(--space-5);
+  left: calc(var(--space-4) - var(--space-7) - 6px);
+  width: 13px;
+  height: 13px;
+  border: 2px solid var(--c-bg);
+  background: var(--c-primary-hi);
+  transform: rotate(45deg);
+}
+
+.experience-item:first-child::before {
+  background: var(--c-accent);
 }
 
 .experience-content {
-  padding: 1.25rem 1.25rem 1.15rem;
-  border-radius: 24px;
-  background: var(--surface-strong);
-  border: 1px solid rgba(16, 33, 58, 0.1);
-  box-shadow: 0 10px 24px rgba(16, 33, 58, 0.08);
+  padding: var(--space-5);
+  border-left: var(--border-accent) solid var(--c-primary);
+  background: var(--c-surface);
 }
 
 .experience-period {
-  color: var(--teal);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
+  margin-bottom: var(--space-2);
+  color: var(--c-accent);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  margin-bottom: 0.5rem;
 }
 
 .experience-title {
-  color: var(--navy);
-  font-size: 1.28rem;
-  font-weight: 800;
-  margin-bottom: 0.3rem;
+  margin-bottom: var(--space-1);
+  color: var(--c-text);
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .experience-company {
-  color: var(--muted);
-  font-weight: 700;
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--space-3);
+  color: var(--c-muted);
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+}
+
+.experience-company::before {
+  content: "@ " / "";
+  color: var(--c-primary-hi);
 }
 
 .experience-description {
-  color: var(--muted);
-  line-height: 1.75;
+  max-width: 75ch;
+  color: var(--c-muted);
 }
 
 .experience-skills {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
+  gap: var(--space-2);
+  margin-top: var(--space-4);
 }
 
 .skill-tag {
-  padding: 0.4rem 0.75rem;
-  border-radius: 999px;
-  background: rgba(16, 33, 58, 0.08);
-  color: var(--navy);
-  font-size: 0.84rem;
-  font-weight: 800;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--c-line-strong);
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 640px) {
+  .timeline {
+    padding-left: var(--space-6);
+  }
+
+  .timeline::before {
+    left: var(--space-2);
+  }
+
+  .experience-item::before {
+    left: calc(var(--space-2) - var(--space-6) - 6px);
+  }
+
+  .experience-content {
+    padding: var(--space-4);
+  }
 }
 
 /* ABOUT */
