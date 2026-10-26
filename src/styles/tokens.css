@@ -4,38 +4,47 @@
  */
 :root {
   /* Color: surfaces */
-  --c-bg: #11151c;
-  --c-surface: #1a202b;
-  --c-surface-2: #222937;
-  --c-surface-3: #2b3343;
+  --c-bg: #141922;
+  --c-surface: #1b212c;
+  --c-surface-2: #212836;
+  --c-surface-3: #29313f;
 
   /* Color: brand */
-  --c-primary: #8c2a37;
-  --c-primary-hover: #a3323f;
-  --c-primary-hi: #e6667a;
-  --c-accent: #e8b64c;
+  --c-primary: #8f3242;
+  --c-primary-hover: #a03b4b;
+  --c-primary-hi: #ea7a8b;
+  --c-accent: #e9bd66;
   --c-on-primary: #ffffff;
-  --c-on-accent: #11151c;
+  --c-on-accent: #141922;
 
   /* Color: category tints (tile backgrounds) and their marks */
-  --c-tint-crimson: #2b1a22;
-  --c-tint-teal: #16403f;
-  --c-tint-violet: #2a2140;
-  --c-tint-moss: #1f3326;
-  --c-mark-crimson: #e6667a;
-  --c-mark-teal: #4fc1b0;
-  --c-mark-violet: #a98bf0;
-  --c-mark-moss: #7fc48a;
+  --c-tint-crimson: #2a1d25;
+  --c-tint-teal: #1a3335;
+  --c-tint-violet: #262239;
+  --c-tint-moss: #1f2e27;
+  --c-mark-crimson: #ea7a8b;
+  --c-mark-teal: #6cc4b6;
+  --c-mark-violet: #b19cec;
+  --c-mark-moss: #8ec897;
 
   /* Color: text and lines */
-  --c-text: #e7e9ee;
+  --c-text: #e6e8ed;
   --c-muted: #a1aab9;
   --c-faint: #6b7484;
-  --c-line: rgba(231, 233, 238, 0.12);
-  --c-line-strong: rgba(231, 233, 238, 0.24);
-  --c-grid: rgba(231, 233, 238, 0.07);
-  --c-grid-cross: rgba(231, 233, 238, 0.13);
+  --c-line: rgba(231, 233, 238, 0.08);
+  --c-line-strong: rgba(231, 233, 238, 0.16);
+  --c-grid: rgba(231, 233, 238, 0.05);
+  --c-grid-cross: rgba(231, 233, 238, 0.08);
   --c-focus: var(--c-primary-hi);
+  --c-glow: rgba(143, 50, 66, 0.22);
+  --c-glow-2: rgba(108, 196, 182, 0.06);
+  --c-header: rgba(20, 25, 34, 0.82);
+  --c-terminal: rgba(161, 170, 185, 0.46);
+  --c-terminal-hi: rgba(234, 122, 139, 0.78);
+
+  /* Elevation */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.22), 0 2px 8px rgba(0, 0, 0, 0.14);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.22), 0 12px 32px rgba(0, 0, 0, 0.18);
 
   /* Typography */
   --font-display: "Barlow Condensed", "Arial Narrow", sans-serif;
@@ -51,11 +60,11 @@
   --fs-2xl: clamp(2.3rem, 5vw, 4.2rem);
 
   --lh-tight: 1;
-  --lh-snug: 1.35;
-  --lh-body: 1.7;
+  --lh-snug: 1.4;
+  --lh-body: 1.75;
 
-  --tracking-wide: 0.18em;
-  --tracking-xwide: 0.32em;
+  --tracking-wide: 0.14em;
+  --tracking-xwide: 0.24em;
 
   /* Spacing */
   --space-1: 0.25rem;
@@ -64,32 +73,40 @@
   --space-4: 1rem;
   --space-5: 1.5rem;
   --space-6: 2rem;
-  --space-7: 3rem;
-  --gutter: 1rem;
+  --space-7: 3.5rem;
+  --space-8: 5rem;
+  --gutter: clamp(1rem, 4vw, 2rem);
   --page-max: 1200px;
   --header-offset: 6rem;
 
   /* Shape */
-  --radius-sm: 2px;
-  --notch: 14px;
-  --slash-w: 14px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --notch: 24px;
+  --slash-w: 12px;
   --slash-gap: 10px;
-  --cut: 28px;
+  --cut: 22px;
   --tick: 6px;
-  --border-accent: 4px;
+  --border-accent: 3px;
   --grid-size: 48px;
+  --terminal-width: clamp(12rem, 19vw, 18rem);
 
   /* Motion */
-  --dur-fast: 150ms;
-  --dur-med: 250ms;
-  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
-  --lift: -3px;
+  --dur-fast: 220ms;
+  --dur-med: 380ms;
+  --dur-slow: 600ms;
+  --ease: cubic-bezier(0.25, 0.8, 0.25, 1);
+  --lift: -2px;
+  --skew: -12deg;
 }
 
 @media (prefers-reduced-motion: reduce) {
   :root {
     --dur-fast: 0ms;
     --dur-med: 0ms;
+    --dur-slow: 0ms;
     --lift: 0px;
   }
 }

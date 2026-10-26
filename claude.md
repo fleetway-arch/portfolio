@@ -2,8 +2,8 @@
 
 ## Stack
 
-- Frontend: React 19 (JSX, not TypeScript yet) + Vite, plain CSS. Lives at the repo root:
-  `index.html`, `src/main.jsx`, `src/App.jsx`, `src/styles/`, `public/images/`
+- Frontend: Vue 3 (JavaScript) + Vite, plain CSS. Lives at the repo root:
+  `index.html`, `src/main.js`, `src/App.vue`, `src/styles/`, `public/images/`
 - Backend: Go (stdlib only) in `main.go`, module `portfolio` (`go.mod`), tests in `main_test.go`
 
 ## Commands
@@ -28,7 +28,7 @@
 
 ## Code standards
 
-- JSX today. If files move to `.ts/.tsx`: TypeScript strict, no `any` unless justified in a comment
+- JavaScript today. If files move to `.ts/.tsx`: TypeScript strict, no `any` unless justified in a comment
 - Design tokens (colors, fonts, spacing, shape, motion) are CSS variables in
   `src/styles/tokens.css`; never hardcode them in `src/styles/base.css` or JSX
 - CSS over JS for animations and effects
@@ -45,20 +45,20 @@ menu and Compendium). Use them for mood. Don't copy their logos, icons or exact 
 
 | Token | Value | Use |
 | --- | --- | --- |
-| `--c-bg` | `#11151c` | page background |
-| `--c-surface` / `-2` / `-3` | `#1a202b` / `#222937` / `#2b3343` | panels, buttons, hover |
-| `--c-primary` | `#8c2a37` | crimson bars, active tab, primary button |
-| `--c-primary-hover` | `#a3323f` | primary hover |
-| `--c-primary-hi` | `#e6667a` | highlights, `>` prompts, links, focus ring |
-| `--c-accent` | `#e8b64c` | gold: terminal values, dates, single gold CTA |
-| `--c-text` / `--c-muted` / `--c-faint` | `#e7e9ee` / `#a1aab9` / `#6b7484` | text tiers (faint = decorative only) |
-| `--c-tint-{crimson,teal,violet,moss}` | `#2b1a22` `#16403f` `#2a2140` `#1f3326` | category tile backgrounds |
-| `--c-mark-{crimson,teal,violet,moss}` | `#e6667a` `#4fc1b0` `#a98bf0` `#7fc48a` | tile notch, tag text, list markers |
+| `--c-bg` | `#141922` | page background |
+| `--c-surface` / `-2` / `-3` | `#1b212c` / `#212836` / `#29313f` | panels, buttons, hover |
+| `--c-primary` | `#8f3242` | crimson bars, active tab, primary button |
+| `--c-primary-hover` | `#a03b4b` | primary hover |
+| `--c-primary-hi` | `#ea7a8b` | highlights, `>` prompts, links, focus ring |
+| `--c-accent` | `#e9bd66` | gold: terminal values, dates, single gold CTA |
+| `--c-text` / `--c-muted` / `--c-faint` | `#e6e8ed` / `#a1aab9` / `#6b7484` | text tiers (faint = decorative only) |
+| `--c-tint-{crimson,teal,violet,moss}` | `#2a1d25` `#1a3335` `#262239` `#1f2e27` | category tile backgrounds |
+| `--c-mark-{crimson,teal,violet,moss}` | `#ea7a8b` `#6cc4b6` `#b19cec` `#8ec897` | tile notch, tag text, list markers |
 
-All text pairs pass AA (checked: muted on every tint ≥ 4.8, marks on their tints ≥ 5.1).
+All text pairs pass AA (checked: muted on every tint ≥ 5.7, marks on their tints ≥ 5.8).
 
 Category mapping:
-- Projects: Go·APIs → crimson, Networking → teal, Game → violet, Design → moss
+- Projects: Security, Go·APIs → crimson, Networking → teal, Game → violet, Design → moss
 - Skills: technical → teal, professional → violet, challenge/training → crimson with a gold label
 
 ### Fonts (Google Fonts `<link>` in `index.html`)
@@ -93,3 +93,12 @@ Category mapping:
 - Before saying a task is done: `npm run build`, `go vet ./...`, `go test ./...` and
   `gofmt -l .` all pass
 - Small, focused commits: one concern per commit
+
+### Softness (tokens)
+
+- Radius: `--radius-sm` 6px (buttons, nav tabs), `--radius-md` 10px (insets), `--radius-lg` 14px (cards),
+  `--radius-pill` (chips/tags). The `.notched` mark inherits the card's top-left radius
+- Elevation: `--shadow-sm` on cards and buttons, `--shadow-md` on hover
+- Motion: 220/380/600ms with a soft ease, `--lift` -2px, nav `--skew` -12deg; `.page-shell` fades in on
+  route change (keyed by path), off under reduced motion
+- Background: soft crimson/teal radial glows under a faint grid; header is translucent with blur

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="736" height="460" viewBox="0 0 736 460" font-family="IBM Plex Mono, monospace">
+  <rect width="736" height="460" fill="#141922"/>
+  <rect x="0" y="0" width="736" height="44" fill="#1b212c"/>
+  <rect x="0" y="0" width="150" height="44" fill="#8f3242"/>
+  <text x="18" y="28" fill="#e6e8ed" font-size="15" font-weight="500">MINI.SIEM</text>
+  <text x="640" y="28" fill="#a1aab9" font-size="12">● live</text>
+  <rect x="0" y="44" width="150" height="416" fill="#1b212c"/>
+  <g fill="#a1aab9" font-size="12">
+    <text x="18" y="84" fill="#ea7a8b">&gt; dashboard</text>
+    <text x="18" y="114">  events</text>
+    <text x="18" y="144">  alerts</text>
+    <text x="18" y="174">  addresses</text>
+    <text x="18" y="204">  team</text>
+  </g>
+  <g font-size="11">
+    <rect x="172" y="64" width="128" height="72" fill="#212836"/>
+    <text x="186" y="88" fill="#a1aab9">EVENTS / 24H</text>
+    <text x="186" y="122" fill="#e9bd66" font-size="24">12 480</text>
+    <rect x="314" y="64" width="128" height="72" fill="#212836"/>
+    <text x="328" y="88" fill="#a1aab9">OPEN ALERTS</text>
+    <text x="328" y="122" fill="#ea7a8b" font-size="24">37</text>
+    <rect x="456" y="64" width="128" height="72" fill="#212836"/>
+    <text x="470" y="88" fill="#a1aab9">CRITICAL</text>
+    <text x="470" y="122" fill="#ea7a8b" font-size="24">4</text>
+    <rect x="598" y="64" width="118" height="72" fill="#212836"/>
+    <text x="612" y="88" fill="#a1aab9">WATCHED IPS</text>
+    <text x="612" y="122" fill="#6cc4b6" font-size="24">219</text>
+  </g>
+  <rect x="172" y="154" width="544" height="140" fill="#1b212c"/>
+  <text x="186" y="176" fill="#a1aab9" font-size="11">EVENTS BY SEVERITY</text>
+  <polyline fill="none" stroke="#6cc4b6" stroke-width="2" points="186,270 230,256 274,262 318,238 362,246 406,220 450,232 494,206 538,214 582,190 626,204 702,184"/>
+  <polyline fill="none" stroke="#ea7a8b" stroke-width="2" points="186,280 230,276 274,278 318,266 362,272 406,250 450,262 494,244 538,256 582,236 626,248 702,230"/>
+  <g font-size="11">
+    <rect x="172" y="312" width="544" height="128" fill="#1b212c"/>
+    <text x="186" y="334" fill="#a1aab9">RECENT ALERTS</text>
+    <rect x="186" y="348" width="6" height="14" fill="#ea7a8b"/>
+    <text x="202" y="359" fill="#e6e8ed">brute-force login · 203.0.113.42</text>
+    <text x="640" y="359" fill="#e9bd66">critical</text>
+    <rect x="186" y="374" width="6" height="14" fill="#e9bd66"/>
+    <text x="202" y="385" fill="#e6e8ed">port scan detected · 198.51.100.7</text>
+    <text x="640" y="385" fill="#e9bd66">high</text>
+    <rect x="186" y="400" width="6" height="14" fill="#6cc4b6"/>
+    <text x="202" y="411" fill="#e6e8ed">new admin session · 192.0.2.10</text>
+    <text x="640" y="411" fill="#e9bd66">info</text>
+  </g>
+</svg>
